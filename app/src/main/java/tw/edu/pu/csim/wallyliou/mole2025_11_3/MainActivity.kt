@@ -25,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import tw.edu.pu.csim.wallyliou.mole2025_11_3.ui.theme.Mole2025_11_3Theme
 
 class MainActivity : ComponentActivity() {
@@ -41,9 +42,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 
-fun MoleScreen() {
+fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
+    val counter = moleViewModel.counter
 
-    var counter by rememberSaveable { mutableLongStateOf(0) }
+    //var counter by rememberSaveable { mutableLongStateOf(0) }
 
     Box (
 
@@ -69,7 +71,7 @@ fun MoleScreen() {
 
             .size(150.dp)
 
-            .clickable { counter++ }
+            .clickable { moleViewModel.incrementCounter() }
 
     )
 
