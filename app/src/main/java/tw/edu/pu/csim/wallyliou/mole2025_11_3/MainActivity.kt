@@ -68,7 +68,7 @@ fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
 
     ) {
 
-        Text("分數: $counter \n時間: $stay")
+        Text( "打地鼠遊戲(劉宇崴) \n分數: $counter \n時間: $stay")
 
 
     }

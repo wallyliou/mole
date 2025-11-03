@@ -30,7 +30,10 @@ class MoleViewModel: ViewModel() {
         private set
 
     fun incrementCounter() {
-        counter++
+        if (stay<60) { // 檢查遊戲狀態
+            counter++
+        }
+
     }
     init {
         // 在 ViewModel 初始化時啟動一個協程來自動增加計數器
@@ -38,11 +41,13 @@ class MoleViewModel: ViewModel() {
     }
     private fun startCounting() {
         viewModelScope.launch {
-            while (true) { // 無限循環，每秒增加一次
+            while (stay<60) { // 無限循環，每秒增加一次
                 delay(1000L)
                 stay++ // 計數器加 1，這會自動觸發 UI 更新
-                moveMole()
+                if(stay<60){
+                moveMole()}
             }
+
         }
     }
 
