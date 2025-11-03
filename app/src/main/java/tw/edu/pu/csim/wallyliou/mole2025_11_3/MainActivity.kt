@@ -44,6 +44,7 @@ class MainActivity : ComponentActivity() {
 
 fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
     val counter = moleViewModel.counter
+    val stay = moleViewModel.stay
 
     //var counter by rememberSaveable { mutableLongStateOf(0) }
 
@@ -55,7 +56,8 @@ fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
 
     ) {
 
-        Text(counter.toString())
+        Text("分數: $counter \n時間: $stay")
+
 
     }
 
